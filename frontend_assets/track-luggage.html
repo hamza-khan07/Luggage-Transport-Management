@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track Luggage - LuggageGo">
+    <title>Track Luggage - LuggageGo</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧳</text></svg>">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">🧳 LuggageGo</div>
+
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="navbar-link">Home</a></li>
+                <li><a href="dashboard.html" class="navbar-link">Dashboard</a></li>
+                <li><a href="book-transport.html" class="navbar-link">Book Now</a></li>
+                <li><a href="track-luggage.html" class="navbar-link active">Track</a></li>
+                <li><a href="profile.html" class="navbar-link">Profile</a></li>
+            </ul>
+
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tracking Section -->
+    <section class="tracking-section">
+        <div class="container">
+            <div class="tracking-header" data-animate="slide-down">
+                <h1>Track Your <span class="gradient-text">Shipment</span></h1>
+                <p>Enter your tracking number to see real-time updates</p>
+            </div>
+
+            <!-- Search Box -->
+            <div class="tracking-search glass-card" data-animate="slide-up">
+                <input type="text" id="trackingInput" class="tracking-input"
+                    placeholder="Enter tracking number (e.g., LG-2024-001)" value="LG-2024-001">
+                <button class="btn btn-primary" onclick="trackShipment()">
+                    Track Shipment
+                </button>
+            </div>
+
+            <!-- Tracking Results -->
+            <div id="trackingResults" class="tracking-results" style="display: block;">
+                <!-- Shipment Info Card -->
+                <div class="shipment-info-card glass-card" data-animate="slide-up" data-delay="100">
+                    <div class="shipment-header">
+                        <div>
+                            <h2>Shipment #LG-2024-001</h2>
+                            <p class="shipment-route">New York, NY → Los Angeles, CA</p>
+                        </div>
+                        <span class="badge badge-info badge-lg">In Transit</span>
+                    </div>
+
+                    <div class="shipment-details-grid">
+                        <div class="detail-item">
+                            <div class="detail-label">Estimated Delivery</div>
+                            <div class="detail-value">Dec 12, 2025</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Current Location</div>
+                            <div class="detail-value">Chicago, IL</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Weight</div>
+                            <div class="detail-value">45 lbs</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Driver</div>
+                            <div class="detail-value">Mike Johnson</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div class="map-container glass-card" data-animate="slide-up" data-delay="200">
+                    <div class="map-header">
+                        <h3>Live Tracking Map</h3>
+                        <button class="btn btn-outline btn-sm">Refresh</button>
+                    </div>
+                    <div class="map-placeholder">
+                        <svg viewBox="0 0 800 400" class="map-svg">
+                            <defs>
+                                <linearGradient id="routeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:var(--neon-teal);stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:var(--neon-cyan);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:var(--neon-blue);stop-opacity:0.5" />
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Route line -->
+                            <path d="M 100 200 Q 250 150, 400 200 T 700 200" stroke="url(#routeGrad)" stroke-width="4"
+                                fill="none" stroke-dasharray="10,5" />
+
+                            <!-- Start point -->
+                            <circle cx="100" cy="200" r="15" fill="var(--neon-teal)" opacity="0.3" />
+                            <circle cx="100" cy="200" r="8" fill="var(--neon-teal)" />
+                            <text x="100" y="240" fill="var(--text-primary)" font-size="14" text-anchor="middle">New
+                                York</text>
+
+                            <!-- Current location (animated) -->
+                            <circle cx="400" cy="200" r="20" fill="var(--neon-cyan)" opacity="0.2">
+                                <animate attributeName="r" from="15" to="25" dur="1.5s" repeatCount="indefinite" />
+                                <animate attributeName="opacity" from="0.3" to="0" dur="1.5s"
+                                    repeatCount="indefinite" />
+                            </circle>
+                            <circle cx="400" cy="200" r="10" fill="var(--neon-cyan)" />
+                            <text x="400" y="240" fill="var(--neon-cyan)" font-size="14" text-anchor="middle"
+                                font-weight="bold">Chicago (Current)</text>
+
+                            <!-- End point -->
+                            <circle cx="700" cy="200" r="15" fill="var(--neon-blue)" opacity="0.3" />
+                            <circle cx="700" cy="200" r="8" fill="var(--neon-blue)" />
+                            <text x="700" y="240" fill="var(--text-primary)" font-size="14" text-anchor="middle">Los
+                                Angeles</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Tracking Timeline -->
+                <div class="tracking-timeline glass-card" data-animate="slide-up" data-delay="300">
+                    <h3>Shipment History</h3>
+
+                    <div class="timeline-track">
+                        <div class="track-item completed">
+                            <div class="track-dot"></div>
+                            <div class="track-content">
+                                <div class="track-status">✓ Picked Up</div>
+                                <div class="track-location">New York, NY</div>
+                                <div class="track-time">Dec 9, 2025 - 10:30 AM</div>
+                                <div class="track-note">Package collected from sender</div>
+                            </div>
+                        </div>
+
+                        <div class="track-item completed">
+                            <div class="track-dot"></div>
+                            <div class="track-content">
+                                <div class="track-status">✓ In Transit</div>
+                                <div class="track-location">Philadelphia, PA</div>
+                                <div class="track-time">Dec 9, 2025 - 2:45 PM</div>
+                                <div class="track-note">Package passed through sorting facility</div>
+                            </div>
+                        </div>
+
+                        <div class="track-item active">
+                            <div class="track-dot pulsing"></div>
+                            <div class="track-content">
+                                <div class="track-status">● In Transit</div>
+                                <div class="track-location">Chicago, IL</div>
+                                <div class="track-time">Dec 10, 2025 - 9:15 AM</div>
+                                <div class="track-note">Package currently at distribution center</div>
+                            </div>
+                        </div>
+
+                        <div class="track-item pending">
+                            <div class="track-dot"></div>
+                            <div class="track-content">
+                                <div class="track-status">○ In Transit</div>
+                                <div class="track-location">Denver, CO</div>
+                                <div class="track-time">Expected: Dec 11, 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="track-item pending">
+                            <div class="track-dot"></div>
+                            <div class="track-content">
+                                <div class="track-status">○ Out for Delivery</div>
+                                <div class="track-location">Los Angeles, CA</div>
+                                <div class="track-time">Expected: Dec 12, 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="track-item pending">
+                            <div class="track-dot"></div>
+                            <div class="track-content">
+                                <div class="track-status">○ Delivered</div>
+                                <div class="track-location">Los Angeles, CA</div>
+                                <div class="track-time">Expected: Dec 12, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact & Actions -->
+                <div class="tracking-actions" data-animate="fade-in" data-delay="400">
+                    <div class="action-buttons">
+                        <button class="btn btn-outline">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Email Updates
+                        </button>
+                        <button class="btn btn-outline">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                <line x1="12" y1="18" x2="12.01" y2="18" />
+                            </svg>
+                            SMS Alerts
+                        </button>
+                        <button class="btn btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                            </svg>
+                            Contact Support
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/animations.js"></script>
+    <script>
+        function trackShipment() {
+            const trackingNumber = document.getElementById('trackingInput').value;
+            if (trackingNumber) {
+                document.getElementById('trackingResults').style.display = 'block';
+                document.getElementById('trackingResults').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Allow Enter key to track
+        document.getElementById('trackingInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                trackShipment();
+            }
+        });
+    </script>
+
+    <style>
+        .tracking-section {
+            padding: 100px 0 40px;
+            min-height: 100vh;
+        }
+
+        .tracking-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tracking-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .tracking-search {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            padding: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .tracking-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: rgba(15, 20, 41, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.125rem;
+            transition: var(--transition-normal);
+        }
+
+        .tracking-input:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .tracking-results {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .shipment-info-card {
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+
+        .shipment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .shipment-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .shipment-route {
+            color: var(--text-muted);
+            font-size: 1.125rem;
+        }
+
+        .badge-lg {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .shipment-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .detail-item {
+            text-align: center;
+        }
+
+        .detail-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+        }
+
+        .map-container {
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+
+        .map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .map-placeholder {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+        }
+
+        .map-svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .tracking-timeline {
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+
+        .tracking-timeline h3 {
+            margin-bottom: 2rem;
+            color: var(--neon-cyan);
+        }
+
+        .timeline-track {
+            position: relative;
+        }
+
+        .timeline-track::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--neon-teal), var(--neon-cyan), rgba(255, 255, 255, 0.1));
+        }
+
+        .track-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 2rem;
+        }
+
+        .track-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+
+        .track-item.completed .track-dot {
+            background: var(--neon-teal);
+            border-color: var(--neon-teal);
+            box-shadow: 0 0 15px var(--neon-teal);
+        }
+
+        .track-item.active .track-dot {
+            background: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        .track-dot.pulsing {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .track-status {
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .track-item.completed .track-status {
+            color: var(--neon-teal);
+        }
+
+        .track-item.active .track-status {
+            color: var(--neon-cyan);
+        }
+
+        .track-item.pending .track-status {
+            color: var(--text-muted);
+        }
+
+        .track-location {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .track-time {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .track-note {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .tracking-actions {
+            margin-top: 2rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .action-buttons .btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .action-buttons svg {
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .tracking-search {
+                flex-direction: column;
+            }
+
+            .shipment-details-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</body>
+
+</html>

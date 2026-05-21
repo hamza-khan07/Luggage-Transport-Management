@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Profile - LuggageGo">
+    <title>Profile - LuggageGo</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧳</text></svg>">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">🧳 LuggageGo</div>
+
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="navbar-link">Home</a></li>
+                <li><a href="dashboard.html" class="navbar-link">Dashboard</a></li>
+                <li><a href="book-transport.html" class="navbar-link">Book Now</a></li>
+                <li><a href="track-luggage.html" class="navbar-link">Track</a></li>
+                <li><a href="profile.html" class="navbar-link active">Profile</a></li>
+            </ul>
+
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-header" data-animate="slide-down">
+                <h1>User <span class="gradient-text">Profile</span></h1>
+                <p>Manage your account settings and preferences</p>
+            </div>
+
+            <div class="profile-grid">
+                <!-- Profile Card -->
+                <div class="profile-card glass-card" data-animate="slide-right">
+                    <div class="profile-avatar-section">
+                        <div class="profile-avatar">JD</div>
+                        <button class="btn btn-outline btn-sm">Change Photo</button>
+                    </div>
+
+                    <div class="profile-info">
+                        <h2>John Doe</h2>
+                        <p class="profile-email">john.doe@example.com</p>
+                        <p class="profile-member">Member since Dec 2025</p>
+                    </div>
+
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <div class="profile-stat-value">24</div>
+                            <div class="profile-stat-label">Active Shipments</div>
+                        </div>
+                        <div class="profile-stat">
+                            <div class="profile-stat-value">156</div>
+                            <div class="profile-stat-label">Total Deliveries</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Forms -->
+                <div class="profile-settings" data-animate="slide-left">
+                    <!-- Personal Information -->
+                    <div class="settings-section glass-card">
+                        <h3>Personal Information</h3>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-input" value="John">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-input" value="Doe">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-input" value="john.doe@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-input" value="+1 (555) 123-4567">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-input" value="123 Main Street, New York, NY 10001">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="settings-section glass-card">
+                        <h3>Security</h3>
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label">Current Password</label>
+                                <input type="password" class="form-input" placeholder="••••••••">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">New Password</label>
+                                <input type="password" class="form-input" placeholder="••••••••">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Confirm New Password</label>
+                                <input type="password" class="form-input" placeholder="••••••••">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Update Password</button>
+                        </form>
+                    </div>
+
+                    <!-- Notification Preferences -->
+                    <div class="settings-section glass-card">
+                        <h3>Notification Preferences</h3>
+                        <div class="preferences-list">
+                            <div class="preference-item">
+                                <div>
+                                    <div class="preference-label">Email Notifications</div>
+                                    <div class="preference-description">Receive updates about your shipments via email
+                                    </div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="preference-item">
+                                <div>
+                                    <div class="preference-label">SMS Alerts</div>
+                                    <div class="preference-description">Get text messages for important updates</div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="preference-item">
+                                <div>
+                                    <div class="preference-label">Marketing Emails</div>
+                                    <div class="preference-description">Receive promotional offers and news</div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="preference-item">
+                                <div>
+                                    <div class="preference-label">Shipment Reminders</div>
+                                    <div class="preference-description">Get reminders about upcoming pickups and
+                                        deliveries</div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Danger Zone -->
+                    <div class="settings-section glass-card danger-zone">
+                        <h3>Danger Zone</h3>
+                        <div class="danger-actions">
+                            <div class="danger-item">
+                                <div>
+                                    <div class="danger-label">Deactivate Account</div>
+                                    <div class="danger-description">Temporarily disable your account</div>
+                                </div>
+                                <button class="btn btn-outline">Deactivate</button>
+                            </div>
+
+                            <div class="danger-item">
+                                <div>
+                                    <div class="danger-label">Delete Account</div>
+                                    <div class="danger-description">Permanently delete your account and all data</div>
+                                </div>
+                                <button class="btn btn-outline delete-btn">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/animations.js"></script>
+
+    <style>
+        .profile-section {
+            padding: 100px 0 40px;
+            min-height: 100vh;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+        }
+
+        .profile-card {
+            padding: 2rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .profile-avatar-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
+            color: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+            box-shadow: var(--glow-cyan);
+        }
+
+        .profile-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-info h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-email {
+            color: var(--neon-cyan);
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-member {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .profile-stat {
+            text-align: center;
+        }
+
+        .profile-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .profile-settings {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .settings-section {
+            padding: 2rem;
+        }
+
+        .settings-section h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .preferences-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .preference-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .preference-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .preference-description {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            transition: var(--transition-normal);
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 2px;
+            bottom: 2px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            transition: var(--transition-normal);
+        }
+
+        input:checked+.toggle-slider {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
+            border-color: var(--neon-cyan);
+        }
+
+        input:checked+.toggle-slider:before {
+            transform: translateX(30px);
+            background: white;
+        }
+
+        .danger-zone {
+            border: 2px solid rgba(255, 59, 92, 0.3);
+        }
+
+        .danger-zone h3 {
+            color: #ff3b5c;
+        }
+
+        .danger-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .danger-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .danger-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .danger-description {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .delete-btn {
+            border-color: #ff3b5c;
+            color: #ff3b5c;
+        }
+
+        .delete-btn:hover {
+            background: rgba(255, 59, 92, 0.1);
+        }
+
+        @media (max-width: 968px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                position: static;
+            }
+
+            .preference-item,
+            .danger-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</body>
+
+</html>

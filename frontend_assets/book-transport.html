@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book Luggage Transport - LuggageGo">
+    <title>Book Transport - LuggageGo</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧳</text></svg>">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">🧳 LuggageGo</div>
+
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="navbar-link">Home</a></li>
+                <li><a href="dashboard.html" class="navbar-link">Dashboard</a></li>
+                <li><a href="book-transport.html" class="navbar-link active">Book Now</a></li>
+                <li><a href="track-luggage.html" class="navbar-link">Track</a></li>
+                <li><a href="profile.html" class="navbar-link">Profile</a></li>
+            </ul>
+
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-header" data-animate="slide-down">
+                <h1>Book <span class="gradient-text">Luggage Transport</span></h1>
+                <p>Complete the form below to schedule your shipment</p>
+            </div>
+
+            <!-- Progress Steps -->
+            <div class="progress-steps" data-animate="fade-in">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Pickup Details</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Delivery Details</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Luggage Info</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Confirmation</div>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="booking-form-container glass-card" data-animate="slide-up">
+                <form id="bookingForm">
+                    <!-- Step 1: Pickup Details -->
+                    <div class="form-step active" data-step="1">
+                        <h3 class="step-title">Pickup Information</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pickupName" class="form-label">Full Name</label>
+                                <input type="text" id="pickupName" class="form-input" placeholder="John Doe" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pickupPhone" class="form-label">Phone Number</label>
+                                <input type="tel" id="pickupPhone" class="form-input" placeholder="+1 (555) 000-0000"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pickupAddress" class="form-label">Pickup Address</label>
+                            <input type="text" id="pickupAddress" class="form-input" placeholder="123 Main Street"
+                                required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pickupCity" class="form-label">City</label>
+                                <input type="text" id="pickupCity" class="form-input" placeholder="New York" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pickupState" class="form-label">State</label>
+                                <input type="text" id="pickupState" class="form-input" placeholder="NY" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pickupZip" class="form-label">ZIP Code</label>
+                                <input type="text" id="pickupZip" class="form-input" placeholder="10001" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pickupDate" class="form-label">Pickup Date & Time</label>
+                            <input type="datetime-local" id="pickupDate" class="form-input" required>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Delivery Details -->
+                    <div class="form-step" data-step="2">
+                        <h3 class="step-title">Delivery Information</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="deliveryName" class="form-label">Recipient Name</label>
+                                <input type="text" id="deliveryName" class="form-input" placeholder="Jane Smith"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="deliveryPhone" class="form-label">Phone Number</label>
+                                <input type="tel" id="deliveryPhone" class="form-input" placeholder="+1 (555) 000-0000"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deliveryAddress" class="form-label">Delivery Address</label>
+                            <input type="text" id="deliveryAddress" class="form-input" placeholder="456 Oak Avenue"
+                                required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="deliveryCity" class="form-label">City</label>
+                                <input type="text" id="deliveryCity" class="form-input" placeholder="Los Angeles"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="deliveryState" class="form-label">State</label>
+                                <input type="text" id="deliveryState" class="form-input" placeholder="CA" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="deliveryZip" class="form-label">ZIP Code</label>
+                                <input type="text" id="deliveryZip" class="form-input" placeholder="90001" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deliveryDate" class="form-label">Expected Delivery Date</label>
+                            <input type="date" id="deliveryDate" class="form-input" required>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" onclick="prevStep()">← Previous</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Luggage Info -->
+                    <div class="form-step" data-step="3">
+                        <h3 class="step-title">Luggage Details</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="luggageType" class="form-label">Luggage Type</label>
+                                <select id="luggageType" class="form-select" required>
+                                    <option value="">Select type</option>
+                                    <option value="suitcase">Suitcase</option>
+                                    <option value="backpack">Backpack</option>
+                                    <option value="box">Box</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="number" id="quantity" class="form-input" min="1" value="1" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="weight" class="form-label">Total Weight (lbs)</label>
+                                <input type="number" id="weight" class="form-input" placeholder="50" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dimensions" class="form-label">Dimensions (L×W×H inches)</label>
+                                <input type="text" id="dimensions" class="form-input" placeholder="24×16×10">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="insurance" class="form-label">Insurance Value ($)</label>
+                            <input type="number" id="insurance" class="form-input" placeholder="500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="specialInstructions" class="form-label">Special Instructions</label>
+                            <textarea id="specialInstructions" class="form-textarea" rows="4"
+                                placeholder="Any special handling requirements..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" onclick="prevStep()">← Previous</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Review Order →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Confirmation -->
+                    <div class="form-step" data-step="4">
+                        <h3 class="step-title">Order Summary</h3>
+
+                        <div class="summary-card glass">
+                            <div class="summary-section">
+                                <h4>Pickup Details</h4>
+                                <div id="pickupSummary" class="summary-content"></div>
+                            </div>
+
+                            <div class="summary-section">
+                                <h4>Delivery Details</h4>
+                                <div id="deliverySummary" class="summary-content"></div>
+                            </div>
+
+                            <div class="summary-section">
+                                <h4>Luggage Information</h4>
+                                <div id="luggageSummary" class="summary-content"></div>
+                            </div>
+
+                            <div class="summary-section price-section">
+                                <h4>Estimated Cost</h4>
+                                <div class="price-breakdown">
+                                    <div class="price-item">
+                                        <span>Base Rate:</span>
+                                        <span>$50.00</span>
+                                    </div>
+                                    <div class="price-item">
+                                        <span>Distance Fee:</span>
+                                        <span>$75.00</span>
+                                    </div>
+                                    <div class="price-item">
+                                        <span>Insurance:</span>
+                                        <span id="insuranceFee">$0.00</span>
+                                    </div>
+                                    <div class="price-item total">
+                                        <span>Total:</span>
+                                        <span id="totalPrice">$125.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" onclick="prevStep()">← Previous</button>
+                            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/animations.js"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function updateStepIndicators() {
+            document.querySelectorAll('.step').forEach(step => {
+                const stepNum = parseInt(step.dataset.step);
+                if (stepNum < currentStep) {
+                    step.classList.add('completed');
+                    step.classList.remove('active');
+                } else if (stepNum === currentStep) {
+                    step.classList.add('active');
+                    step.classList.remove('completed');
+                } else {
+                    step.classList.remove('active', 'completed');
+                }
+            });
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.form-step').forEach(formStep => {
+                formStep.classList.remove('active');
+            });
+            document.querySelector(`.form-step[data-step="${step}"]`).classList.add('active');
+            updateStepIndicators();
+
+            if (step === 4) {
+                updateSummary();
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        function updateSummary() {
+            // Pickup summary
+            const pickupSummary = `
+                <p><strong>${document.getElementById('pickupName').value}</strong></p>
+                <p>${document.getElementById('pickupAddress').value}</p>
+                <p>${document.getElementById('pickupCity').value}, ${document.getElementById('pickupState').value} ${document.getElementById('pickupZip').value}</p>
+                <p>Phone: ${document.getElementById('pickupPhone').value}</p>
+                <p>Date: ${new Date(document.getElementById('pickupDate').value).toLocaleString()}</p>
+            `;
+            document.getElementById('pickupSummary').innerHTML = pickupSummary;
+
+            // Delivery summary
+            const deliverySummary = `
+                <p><strong>${document.getElementById('deliveryName').value}</strong></p>
+                <p>${document.getElementById('deliveryAddress').value}</p>
+                <p>${document.getElementById('deliveryCity').value}, ${document.getElementById('deliveryState').value} ${document.getElementById('deliveryZip').value}</p>
+                <p>Phone: ${document.getElementById('deliveryPhone').value}</p>
+                <p>Expected: ${new Date(document.getElementById('deliveryDate').value).toLocaleDateString()}</p>
+            `;
+            document.getElementById('deliverySummary').innerHTML = deliverySummary;
+
+            // Luggage summary
+            const luggageSummary = `
+                <p>Type: <strong>${document.getElementById('luggageType').value}</strong></p>
+                <p>Quantity: ${document.getElementById('quantity').value} piece(s)</p>
+                <p>Weight: ${document.getElementById('weight').value} lbs</p>
+                <p>Dimensions: ${document.getElementById('dimensions').value || 'Not specified'}</p>
+                ${document.getElementById('specialInstructions').value ? `<p>Notes: ${document.getElementById('specialInstructions').value}</p>` : ''}
+            `;
+            document.getElementById('luggageSummary').innerHTML = luggageSummary;
+
+            // Calculate price
+            const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+            const insuranceFee = insurance * 0.02; // 2% of value
+            const total = 125 + insuranceFee;
+
+            document.getElementById('insuranceFee').textContent = `$${insuranceFee.toFixed(2)}`;
+            document.getElementById('totalPrice').textContent = `$${total.toFixed(2)}`;
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Booking confirmed! Redirecting to dashboard...');
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 1000);
+        });
+    </script>
+
+    <style>
+        .booking-section {
+            padding: 100px 0 40px;
+            min-height: 100vh;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .booking-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .booking-header p {
+            color: var(--text-muted);
+        }
+
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: var(--transition-normal);
+        }
+
+        .step.active .step-number {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
+            border-color: var(--neon-cyan);
+            color: var(--dark-bg);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .step.completed .step-number {
+            background: rgba(0, 255, 170, 0.2);
+            border-color: var(--neon-teal);
+            color: var(--neon-teal);
+        }
+
+        .step-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .step.active .step-label {
+            color: var(--neon-cyan);
+            font-weight: 600;
+        }
+
+        .step-line {
+            width: 80px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .booking-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .step-title {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            color: var(--neon-cyan);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: flex-end;
+        }
+
+        .summary-card {
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-section {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .summary-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .summary-section h4 {
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .summary-content p {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .price-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+        }
+
+        .price-item.total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            padding-top: 1rem;
+            border-top: 2px solid var(--neon-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .booking-form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .progress-steps {
+                gap: 0.5rem;
+            }
+
+            .step-line {
+                width: 40px;
+            }
+
+            .step-label {
+                font-size: 0.75rem;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .form-actions button {
+                width: 100%;
+            }
+        }
+    </style>
+</body>
+
+</html>
