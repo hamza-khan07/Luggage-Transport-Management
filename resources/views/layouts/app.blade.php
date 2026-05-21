@@ -20,6 +20,7 @@
             <ul class="navbar-menu">
                 @if(!Auth::check() || !Auth::user()->isAdmin())
                 <li><a href="{{ route('home') }}" class="navbar-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
+                <li><a href="{{ route('contact') }}" class="navbar-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a></li>
                 @endif
                 <li><a href="{{ route('about') }}" class="navbar-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
                 @auth
