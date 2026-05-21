@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/about-us', function () {
+    return view('about');
+})->name('about');
+
 // Authentication Routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
