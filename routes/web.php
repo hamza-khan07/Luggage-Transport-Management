@@ -24,6 +24,24 @@ Route::get('/', function () {
 Route::get('/terms-and-policies', function () {
     return view('terms_and_policies');
 })->name('terms_and_policies');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::post('/contact', function (\Illuminate\Http\Request $request) {
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'subject' => 'nullable|string|max:255',
+        'message' => 'required|string',
+    ]);
+    
+    // In a real application, you would send an email here.
+    return back()->with('success', 'Your message has been sent successfully! We will get back to you soon.');
+})->name('contact.submit');
+Route::get('/about-us', function () {
+    return view('about');
+})->name('about');
 
 // Authentication Routes
 Route::middleware('guest')->group(function () {
