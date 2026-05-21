@@ -21,6 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/terms-and-policies', function () {
+    return view('terms_and_policies');
+})->name('terms_and_policies');
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');

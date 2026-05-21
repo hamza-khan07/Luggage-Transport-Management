@@ -138,7 +138,7 @@
                     <ul>
                         <li><a href="#">Help Center</a></li>
                         <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="{{ route('terms_and_policies') }}">Terms & Policies</a></li>
                     </ul>
                 </div>
                 
